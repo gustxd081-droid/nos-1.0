@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071c24">
+<title>nOS 1.0 | NOVA</title>
+<style>
+:root{--bg:#071c24;--panel:#102b34;--line:#28505a;--text:#effcff;--muted:#a6c2c9;--mint:#8ff5d2;--blue:#76d8f2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 5%,#17434b 0,transparent 38%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff13}
+.brand{display:flex;align-items:center;gap:11px;font-weight:850;letter-spacing:-.04em;font-size:21px}.logo{width:35px;height:35px;border-radius:12px;background:linear-gradient(145deg,var(--mint),var(--blue));display:grid;place-items:center;color:#06242a;font-weight:950}
+nav{display:flex;gap:27px;color:var(--muted);font-size:14px}nav a:hover{color:var(--mint)}.pill{border:1px solid #4e858c;border-radius:999px;padding:10px 16px;font-size:13px;color:var(--mint)}
+.hero{min-height:650px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px;padding:75px 0 90px}
+.eyebrow{color:var(--mint);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(54px,8vw,92px);line-height:.95;letter-spacing:-.075em;margin:18px 0 22px}h1 span{background:linear-gradient(90deg,var(--mint),var(--blue));background-clip:text;color:transparent}
+.lead{font-size:17px;line-height:1.8;color:var(--muted);max-width:510px}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{border:0;border-radius:14px;padding:14px 20px;font-weight:800;cursor:pointer;background:linear-gradient(100deg,var(--mint),var(--blue));color:#08252c}.btn.secondary{background:#ffffff0b;border:1px solid var(--line);color:var(--text)}
+.visual{display:flex;justify-content:center;align-items:center;min-height:490px;position:relative}.orb{position:absolute;width:370px;height:370px;border-radius:50%;background:radial-gradient(circle,#69e7d544,transparent 68%);filter:blur(8px)}
+.phone{width:245px;height:475px;border:7px solid #9ab9bd;border-radius:38px;background:#081b22;padding:9px;position:relative;z-index:1;box-shadow:0 35px 90px #0009,0 0 55px #6cebd522;transform:rotate(5deg)}
+.screen{height:100%;border-radius:25px;overflow:hidden;background:linear-gradient(155deg,#b8f5e5,#5eb9c5 48%,#183e54);color:#09272e;padding:18px 14px;position:relative}
+.status{display:flex;justify-content:space-between;font-size:10px;font-weight:800}.greeting{margin-top:35px;font-size:12px;font-weight:700}.clock{font-size:48px;letter-spacing:-.07em;font-weight:750;line-height:1.1}.date{font-size:11px}
+.widget{margin-top:24px;border:1px solid #ffffff8a;background:#ffffff65;border-radius:18px;padding:13px;backdrop-filter:blur(12px)}.widget small{font-weight:700}.weather{font-size:27px;font-weight:800;margin-top:7px}
+.appgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.app{height:42px;border-radius:14px;background:#ffffff9c;display:grid;place-items:center;font-size:18px}.appname{text-align:center;font-size:8px;margin-top:5px;font-weight:700}.dock{position:absolute;bottom:13px;left:14px;right:14px;display:flex;justify-content:space-around;padding:10px;border-radius:17px;background:#ffffff80}
+section{padding:75px 0;border-top:1px solid #ffffff12}.section-head{text-align:center;max-width:650px;margin:0 auto 38px}.section-head h2{font-size:clamp(30px,5vw,46px);letter-spacing:-.05em;margin:12px 0}.section-head p{color:var(--muted);line-height:1.7}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#14343d,#0d252e);border:1px solid var(--line);border-radius:22px;padding:25px;min-height:190px}.symbol{font-size:27px}.card h3{margin:18px 0 8px}.card p{color:var(--muted);line-height:1.7;font-size:14px;margin:0}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.spec{padding:20px;border-radius:18px;background:#ffffff08;border:1px solid #ffffff12}.spec b{display:block;font-size:25px;color:var(--mint);letter-spacing:-.04em}.spec span{font-size:12px;color:var(--muted)}
+.cta{text-align:center;background:linear-gradient(120deg,#123b43,#102c3b);border:1px solid var(--line);border-radius:28px;padding:45px 20px}.cta h2{font-size:36px;letter-spacing:-.05em;margin:0 0 12px}.cta p{color:var(--muted)}
+footer{padding:28px 0;color:#78979e;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#d5fff1;color:#09272e;padding:12px 18px;border-radius:999px;font-weight:800;font-size:13px;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){nav{display:none}.hero{grid-template-columns:1fr;text-align:center;padding-top:65px;gap:10px}.lead{margin:auto}.actions{justify-content:center}.visual{min-height:510px}.cards{grid-template-columns:1fr}.specs{grid-template-columns:repeat(2,1fr)}section{padding:58px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<a class="brand" href="#"><span class="logo">n</span><span>nOS <span style="color:var(--mint)">1.0</span></span></a>
+<nav><a href="#experience">Experience</a><a href="#features">Features</a><a href="#details">Details</a></nav>
+<a class="pill" href="#experience">Explore nOS ↗</a>
+</header>
+<main>
+<div class="hero">
+<div>
+<div class="eyebrow">Introducing · NOVA operating system</div>
+<h1>More flow.<br><span>Less friction.</span></h1>
+<p class="lead">พบกับ nOS 1.0 แนวคิดระบบปฏิบัติการจาก NOVA ที่ออกแบบประสบการณ์ใหม่ให้เรียบง่าย ลื่นไหล และมีเอกลักษณ์ในทุกการแตะ</p>
+<div class="actions"><a class="btn" href="#features">Discover nOS</a><button class="btn secondary" id="demoBtn">Try a little demo</button></div>
+</div>
+<div class="visual" aria-label="ภาพจำลองหน้าจอ nOS"><div class="orb"></div><div class="phone"><div class="screen">
+<div class="status"><span>9:41</span><span>◉ ▰ ▴</span></div><div class="greeting">Good morning, NOVA user</div><div class="clock" id="clock">09:41</div><div class="date">A fresh day, a fresh start.</div>
+<div class="widget"><small>YOUR SPACE · TODAY</small><div class="weather">☀ 28°</div><small>Clear skies. Good vibes.</small></div>
+<div class="appgrid"><div><div class="app">▦</div><div class="appname">Gallery</div></div><div><div class="app">◉</div><div class="appname">Camera</div></div><div><div class="app">♫</div><div class="appname">Music</div></div><div><div class="app">⚙</div><div class="appname">Settings</div></div><div><div class="app">✉</div><div class="appname">Messages</div></div><div><div class="app">⌁</div><div class="appname">Browser</div></div><div><div class="app">▣</div><div class="appname">Files</div></div><div><div class="app">＋</div><div class="appname">More</div></div></div>
+<div class="dock"><span>▣</span><span>◉</span><span>◎</span><span>⚙</span></div>
+</div></div></div>
+</div>
+<section id="experience"><div class="section-head"><div class="eyebrow">The experience</div><h2>Made to feel effortless.</h2><p>ทุกองค์ประกอบมีพื้นที่หายใจ ทุกการเคลื่อนไหวมีจังหวะของตัวเอง นี่คือทิศทางของ BioY UI 1.0</p></div>
+<div class="cards"><article class="card"><div class="symbol">◈</div><h3>Liquid-inspired design</h3><p>พื้นผิวโปร่งแสง ไล่เฉดสี และเลเยอร์ที่ทำให้หน้าจอดูมีมิติ</p></article><article class="card"><div class="symbol">⌘</div><h3>Simple by nature</h3><p>จัดวางสิ่งสำคัญให้เข้าถึงง่าย ลดความซับซ้อนที่ไม่จำเป็น</p></article><article class="card"><div class="symbol">✧</div><h3>Your own rhythm</h3><p>ประสบการณ์ที่ให้ความสำคัญกับความต่อเนื่องและความรู้สึกในการใช้งาน</p></article></div>
+</section>
+<section id="features"><div class="section-head"><div class="eyebrow">BioY UI 1.0</div><h2>A calmer kind of tech.</h2><p>แนวคิดการออกแบบของ nOS 1.0 ที่ผสมความสดชื่นของสี Aqua เข้ากับหน้าตาที่ทันสมัย</p></div>
+<div class="specs"><div class="spec"><b>01</b><span>Clean interface</span></div><div class="spec"><b>02</b><span>Fluid motion concept</span></div><div class="spec"><b>03</b><span>Aqua visual language</span></div><div class="spec"><b>04</b><span>NOVA identity</span></div></div>
+</section>
+<section id="details"><div class="cta"><div class="eyebrow">A NOVA concept</div><h2>This is nOS 1.0.</h2><p>ระบบปฏิบัติการในจินตนาการ ที่เริ่มต้นจากไอเดียของคุณ</p><button class="btn" id="helloBtn">Say hello to nOS</button></div></section>
+</main>
+<footer><span>© 2026 NOVA · nOS 1.0 Concept</span><span>Designed for the next little big thing.</span></footer>
+</div>
+<div class="toast" id="toast">Welcome to nOS 1.0 ✨</div>
+<script>
+const clock=document.getElementById('clock');
+function tick(){clock.textContent=new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false})}
+tick();setInterval(tick,30000);
+const toast=document.getElementById('toast');
+function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+document.getElementById('demoBtn').addEventListener('click',()=>showToast('BioY UI demo is looking fresh ✨'));
+document.getElementById('helloBtn').addEventListener('click',()=>showToast('Welcome to the NOVA universe! 🚀'));
+</script>
+</body>
+</html>
